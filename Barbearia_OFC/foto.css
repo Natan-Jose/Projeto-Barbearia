@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
+@font-face {
+    font-family: 'minha fonte';
+    src: url(Anton-Regular.ttf);
+}
+
+
+
+body {
+
+  text-align: center;
+  background-color: black;
+  color: rgb(255, 255, 255);
+
+}
+
+hr {
+  color: gray;
+}
+
+
+
+h4 {
+
+  color: rgb(255, 208, 0);
+  font-size: large;
+  text-shadow: 2px 2px black;
+  font-style: italic;
+ 
+}
+
+.image1 {
+
+
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  max-height: 500px;
+ 
+}
+
+
+  
+h4 {
+  margin: 5px 0;
+}
+
+
+h3 {
+
+  color: rgb(255, 208, 0);
+
+}
