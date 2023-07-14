@@ -1,0 +1,110 @@
+    @import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
+    @font-face {
+        font-family: 'minha fonte';
+        src: url(Anton-Regular.ttf);
+    }
+
+
+    body {
+
+        background-color: rgb(0, 0, 0);
+        color: white;
+
+    }
+
+
+    a {
+
+        color: rgb(253, 9, 9);
+
+        font-style: oblique;
+        font-size: large;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+
+
+
+    h1#titulo {
+
+        color: white;
+        font-size: x-large;
+        font-style: inherit;
+
+    }
+
+    h3 {
+
+        color: blanchedalmond(255, 20, 20);
+
+    }
+
+    h3#perfil {
+        color: deeppink;
+
+    }
+
+    div#whatswidget-pre-wrapper {
+
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+
+    }
+
+    h3#rua {
+
+        color: red;
+        font-style: italic;
+
+    }
+
+    h3#desconto {
+
+        color: red;
+        font-style: italic;
+
+    }
+
+    h2#endereco {
+
+        color: darkgoldenrod;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    }
+
+    h2#conts {
+
+        color: rgb(218, 61, 61);
+    }
+
+    
+
+    
+
+    p {
+
+        color: rgb(255, 238, 0);
+        font-size: medium;
+        font-style: italic;
+       
+
+    }
+
+    h4#r9 {
+
+        color: rgb(255, 208, 0);
+        
+        font-size: large;
+        text-shadow: 2px 2px black;
+        font-style: italic;
+
+    }
+
+
+    h1#ok {
+
+        color: red;
+
+    }
