@@ -1,0 +1,18 @@
+    @import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
+    @font-face {
+        font-family: 'minha fonte';
+        src: url(Anton-Regular.ttf);
+    }
+
+
+    body {
+
+        background-color: rgb(0, 0, 0);
+        color: white;
+
+    }
+
+
+
+    
