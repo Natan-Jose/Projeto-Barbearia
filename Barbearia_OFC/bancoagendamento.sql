@@ -10,3 +10,4 @@ hora varchar(5)
 
 select * from cadastro;
 
+describe cadastro;
