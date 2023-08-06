@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
+@font-face {
+    font-family: 'minha fonte';
+    src: url(Anton-Regular.ttf);
+}
+
+
 body {
     text-align: center;
     background-color: black;
+    color: rgb(255, 255, 255);
+    
 }
-
 
 h3 {
     color: #ffc107;
-}
-
-img {
-    width: 1500px;
-    height: 350px;
 }
 
 hr {
@@ -22,8 +26,8 @@ p {
 }
 
 table {
-    margin-left: 42%;
-
+    margin: 10px auto; 
+    font-size: 20px;
 }
 
 input {

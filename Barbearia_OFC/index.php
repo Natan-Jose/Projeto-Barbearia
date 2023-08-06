@@ -1,9 +1,8 @@
 <?php
 include("conexao.php");
-
 include("excluir_agendamentos.php");
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,7 +21,7 @@ include("excluir_agendamentos.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
-    <link rel="stylesheet" href=" style.css">
+    <link rel="stylesheet" href=" style0.css">
     <title>BARBERSHOP</title>
     <!-- <script>
         hoje = new Date();
@@ -30,52 +29,43 @@ include("excluir_agendamentos.php");
     </script> -->
 </head>
 
-<div class="text-center">
-<a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
-<a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
-<a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
-<a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
-</div>
-
 <body>
+    <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
+    <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
+    <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
+    <a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
+
+    <br>
+
+    <picture>
+        <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
+        <source media="(max-width: 1050px)" width="700" height="350" srcset="imagens/Logo.jpeg" type="image/
+            png">
+        <img src="imagens/Logo.jpeg" width="750" height="390" alt="Logo">
+    </picture>
+
+
     <div class="container">
-    <hr>
-    <div class="text-center">
-  <img src="imagens/barbershop_logo.png" class="rounded" alt="...">
-</div>
 
-<hr>
+        <h1>Nossa Barbearia: Tradição e Estilo Contemporâneo</h1>
+        <p>
+            Bem-vindo à nossa barbearia! Somos um espaço que resgata a tradição clássica da barbearia e a combina
+            com um estilo
+            moderno. Nossa equipe talentosa de barbeiros proporciona uma experiência única e personalizada,
+            oferecendo cortes de
+            cabelo, barboterapia, aparos de barba e tratamentos capilares.
 
+        <p>
+            Aqui, cuidamos não só do seu visual, mas também do seu bem-estar. Valorizamos cada cliente e estamos
+            sempre buscando
+            inovar. Venha nos visitar e redescubra a verdadeira essência da masculinidade.
 
-<h1 class="titulo text-center"> BARBERSHOP COR E ARTE </h1>
+        <p>
+            <em>Agende agora mesmo o seu horário e permita-nos cuidar do seu estilo com maestria!</em>
 
-<br>
-<hr>
+            <hr>
 
-
-
-<hr>
-
-<div class="video text-center">
-<iframe width="560" class="video1" height="315" src="https://www.youtube.com/embed/JJCgXdfDNI0" title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-    <hr>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wINKoSxsaxA" title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-</div>
-
-<br>
-<hr>
-
-    </div>
-
-      
-   
-
+            <br>
 
 </body>
 

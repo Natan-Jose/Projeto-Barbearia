@@ -62,23 +62,20 @@ if (isset($_POST['Enviar'])) {
 
 </head>
 
-
-
 <body>
-
-  <br>
-  <hr>
-
-  <img
-    src="https://img.freepik.com/free-vector/barber-shop-hair-styling-tools-supplies-set-realistic-monochrome-top-view-with-shaving-brush-vector-illustration_1284-30216.jpg?w=2000"
-    alt="topo do rodapé">
-  <br>
-  <hr>
   <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
   <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
   <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
   <a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
-
+  <br>
+  
+  <picture>
+    <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
+    <source media="(max-width: 1050px)" width="700" height="350" srcset="imagens/Logo.jpeg" type="image/png">
+    <img src="imagens/Logo.jpeg" width="750" height="390" alt="Logo">
+  </picture>
+  </div>
+  
   <hr>
   <h3>Faça seu agendamento</h3>
 
@@ -125,11 +122,8 @@ if (isset($_POST['Enviar'])) {
       <option value="18:30">18:30 Noite</option>
 
 
-
-
       <br>
       <p></p>
-
 
 
       <input type="reset" value="Limpar">
@@ -139,6 +133,7 @@ if (isset($_POST['Enviar'])) {
       <hr>
       <h3>Horário de funcionamento</h3>
       <hr>
+
       <table>
         <tr>
           <th>Dia da Semana</th>
@@ -235,8 +230,10 @@ if (isset($_POST['Enviar'])) {
       // Define o valor formatado no campo de contato
       contatoInput.value = numeroFormatado;
     });
+    
 
   </script>
+
 </body>
 
 </html>
