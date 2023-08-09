@@ -21,15 +21,33 @@ include("excluir_agendamentos.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
-    <link rel="stylesheet" href=" style0.css">
+    <link rel="stylesheet" href=" style.css">
     <title>BARBERSHOP</title>
     <!-- <script>
         hoje = new Date();
         document.write("Data e hora completa: " + hoje);
     </script> -->
+
+    
+    <script>
+function loading() {
+    setTimeout(function() {
+        document.querySelector('.box-load').style.display = "none";
+        document.querySelector('.content').style.display = "block";
+    }, 1000); //milissegundos 
+}
+
+</script>
+
 </head>
 
-<body>
+<body onLoad="loading()">
+
+    <div class="box-load">
+<div class="pre"></div>
+</div>
+<div class="content">
+
     <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
     <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
     <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
@@ -67,6 +85,6 @@ include("excluir_agendamentos.php");
 
             <br>
 
+            
 </body>
-
 </html>

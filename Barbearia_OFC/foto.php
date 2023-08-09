@@ -44,7 +44,8 @@
 
   <hr>
 
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"> <!--"false"-->
+   
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -61,14 +62,14 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
         aria-label="Slide 7"></button>
 
-        
+       <!--h4 = "d-none d-md-block"  -->    
         
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
 
         <img src="imagens/Corte Militar.jpg" class="image1" alt="Corte Militar">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Militar</h4>
 
 
@@ -78,7 +79,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Corte Surfista.webp" class="image1" alt="Corte Surfista">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Surfista </h4>
         </div>
       </div>
@@ -87,7 +88,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Corte Coque.jfif" class="image1" alt="Corte Coque">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Coque </h4>
 
         </div>
@@ -95,7 +96,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Corte na Régua.jpg" class="image1" alt="corte na régua">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte na Régua</h4>
 
 
@@ -104,7 +105,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Corte Wolverine.jpg" class="image1" alt="Corte wolverine">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Abacaxi </h4>
 
 
@@ -113,7 +114,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Luzes.jpg" class="image1" alt="Corte Luzes">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Luzes </h4>
 
 
@@ -122,7 +123,7 @@
 
       <div class="carousel-item">
         <img src="imagens/Corte Gilete.jpg" class="image1" alt="Corte Gilete">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-block">
           <h4>Corte Gilete </h4>
 
 
@@ -144,6 +145,20 @@
 
     </div>
     <hr>
+
+     <script>
+      // Função para avançar automaticamente o carrossel
+      function autoAdvanceCarousel() {
+        const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleCaptions'), {
+          interval: 2000, // Intervalo em milissegundos entre os slides (2 segundos neste caso)
+       
+          pause: 'hover', // Pausar a rolagem quando o mouse estiver sobre o carrossel
+        });
+      }
+
+      // Chame a função quando o documento estiver carregado
+      document.addEventListener('DOMContentLoaded', autoAdvanceCarousel);
+    </script>
 
 </body>
 
