@@ -55,7 +55,7 @@
     <h3>Contato</h3>
     <br>
 
-    <a href="https://wa.me/5581877443772" target="_blank">
+    <a href="https://wa.me/558185230542" target="_blank">
         <img src="imagens/favicon-32x32" alt="Ícone">
     </a>
     <a href="https://www.instagram.com/barbeiroshop100/#" target="_blank">
