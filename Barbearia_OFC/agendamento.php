@@ -130,7 +130,17 @@ if (isset($_POST['Enviar'])) {
       <br>
       <p></p>
       <input type="submit" value="Enviar" name="Enviar">
-      <hr>
+      <p>
+
+      <div class="my-links">
+
+        <a href="consultar.php" target="_blank">Consultar</a>
+        <a href="desmarcar.php" target="_blank">Desmarcar</a>   
+      
+      </div>
+      
+    <hr>
+
       <h3>Horário de funcionamento</h3>
       <hr>
 

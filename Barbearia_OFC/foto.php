@@ -15,7 +15,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
-  <link rel="stylesheet" href="foto0.css">
+  <link rel="stylesheet" href="foto.css">
   <title>BARBERSHOP</title>
   <!-- <script>
     hoje = new Date();

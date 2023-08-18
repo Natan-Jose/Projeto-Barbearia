@@ -68,9 +68,26 @@ form {
 
 th {
     color: white;
+    
 }
 
 td {
     color: white;
+    
 }
 
+/*estilo padrão para os links */
+.my-links a {
+    color: blue; 
+    text-decoration: none;
+   
+    margin: 0 10px;
+}
+
+
+.my-links a:hover {
+    text-decoration: underline;
+}
+
+   
+    
