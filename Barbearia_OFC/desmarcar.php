@@ -7,7 +7,7 @@ if (isset($_POST["contato"])) {
     // Verifica se o botão Excluir foi pressionado
     if (isset($_POST["excluir"])) {
         // Prepara a consulta de exclusão
-        $query = "DELETE FROM cadastro WHERE contato = :contato";
+        $query = "DELETE FROM cadastro WHERE contato = :contato LIMIT 1";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":contato", $contato);
 
