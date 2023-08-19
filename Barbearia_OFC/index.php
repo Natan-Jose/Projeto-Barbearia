@@ -36,48 +36,49 @@ include("excluir_agendamentos.php");
 <body onLoad="loading()">
 
     <div class="box-load">
-<div class="pre"></div>
-</div>
+        <div class="pre"></div>
+    </div>
 
-<div class="content">
+    <div class="content">
 
-    <br>
-    <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
-    <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
-    <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
-    <a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
-    <br>
+        <br>
+        <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
+        <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
+        <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
+        <a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
+        <br>
 
-    <picture>
-        <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
-        <source media="(max-width: 1050px)" width="700" height="350" srcset="imagens/Logo.jpeg" type="image/
+        <picture>
+            <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
+            <source media="(max-width: 1050px)" width="700" height="350" srcset="imagens/Logo.jpeg" type="image/
             png">
-        <img src="imagens/Logo.jpeg" width="750" height="390" alt="Logo">
-    </picture>
+            <img src="imagens/Logo.jpeg" width="750" height="390" alt="Logo">
+        </picture>
 
 
-    <div class="container">
+        <div class="container">
 
-        <h1>Nossa Barbearia: Tradição e Estilo Contemporâneo</h1>
-        <p>
-            Bem-vindo à nossa barbearia! Somos um espaço que resgata a tradição clássica da barbearia e a combina
-            com um estilo
-            moderno. Nossa equipe talentosa de barbeiros proporciona uma experiência única e personalizada,
-            oferecendo cortes de
-            cabelo, barboterapia, aparos de barba e tratamentos capilares.
+            <h1>Nossa Barbearia: Tradição e Estilo Contemporâneo</h1>
+            <p>
+                Bem-vindo à nossa barbearia! Somos um espaço que resgata a tradição clássica da barbearia e a combina
+                com um estilo
+                moderno. Nossa equipe talentosa de barbeiros proporciona uma experiência única e personalizada,
+                oferecendo cortes de
+                cabelo, barboterapia, aparos de barba e tratamentos capilares.
 
-        <p>
-            Aqui, cuidamos não só do seu visual, mas também do seu bem-estar. Valorizamos cada cliente e estamos
-            sempre buscando
-            inovar. Venha nos visitar e redescubra a verdadeira essência da masculinidade.
+            <p>
+                Aqui, cuidamos não só do seu visual, mas também do seu bem-estar. Valorizamos cada cliente e estamos
+                sempre buscando
+                inovar. Venha nos visitar e redescubra a verdadeira essência da masculinidade.
 
-        <p>
-            <em>Agende agora mesmo o seu horário e permita-nos cuidar do seu estilo com maestria!</em>
+            <p>
+                <em>Agende agora mesmo o seu horário e permita-nos cuidar do seu estilo com maestria!</em>
 
-            <hr>
+                <hr>
 
-            <br>
+                <br>
 
-            
+
 </body>
+
 </html>

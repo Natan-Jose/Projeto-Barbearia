@@ -1,13 +1,16 @@
+@keyframes load {
 
-@keyframes load{
+    to {
+        transform: rotateY(359deg)
+    }
 
-    to{ transform: rotateY(359deg)} /* Rotação horizontal */
+    /* Rotação horizontal */
 }
 
 
-.pre{
+.pre {
 
-    width:80px;
+    width: 80px;
     height: 80px;
     background-image: url("imagens/animação.jpeg");
     background-position: center;
@@ -15,11 +18,11 @@
     animation: load 2s infinite linear;
 }
 
-.box-load{
-    position:absolute;
+.box-load {
+    position: absolute;
     width: 100%;
     height: 100%;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
