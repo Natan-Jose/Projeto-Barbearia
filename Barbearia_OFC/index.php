@@ -41,11 +41,11 @@ include("excluir_agendamentos.php");
 
 <div class="content">
 
+    <br>
     <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
     <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
     <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
     <a class="btn btn-outline-warning" href="contato.php" role="button">Contato</a>
-
     <br>
 
     <picture>

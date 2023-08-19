@@ -68,6 +68,7 @@ if (isset($_POST['Enviar'])) {
 
 <div class="content">
 
+  <br>
   <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
   <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
   <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
