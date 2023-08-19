@@ -78,7 +78,7 @@ td {
 
 /*estilo padrão para os links */
 .my-links a {
-    color: blue; 
+    color: rgb(255, 255, 255); 
     text-decoration: none;
    
     margin: 0 10px;

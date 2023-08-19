@@ -1,8 +1,8 @@
 <?php
 //inicio da conexão com PDO
 $host = "localhost";
-$user = "root";
-$db_password = "";
+$user = "natan";
+$db_password = "123123";
 $db_name = "agendamento";
 
 

@@ -47,7 +47,6 @@ if (isset($_POST["contato"])) {
     
 ?> 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -56,13 +55,20 @@ if (isset($_POST["contato"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
   <link rel="stylesheet" href="desmarcar.css">  
+  <link rel="stylesheet" href="preloader.css">
   <title>BARBERSHOP</title>
 
-
+  <script src="script_preloader.js"></script>
 
 </head>
 
-<body>
+<body onLoad="loading()">
+
+    <div class="box-load">
+<div class="pre"></div>
+</div>
+
+<div class="content">
 
     <form method="POST" action="desmarcar.php">
 

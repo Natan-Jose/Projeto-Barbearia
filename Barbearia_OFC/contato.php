@@ -16,14 +16,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="contato0.css">
+    <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
-    <!-- <script>
-        hoje = new Date();
-        document.write("Data e hora completa: " + hoje);
-    </script> -->
+   
+    <script src="script_preloader.js"></script>
+
 </head>
 
-<body>
+<body onLoad="loading()">
+
+    <div class="box-load">
+<div class="pre"></div>
+</div>
+
+<div class="content">
+
     <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
     <a class="btn btn-outline-warning" href="foto.php" role="button">Estilo de Cortes</a>
     <a class="btn btn-outline-warning" href="agendamento.php" role="button">Agendamento</a>
