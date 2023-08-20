@@ -75,3 +75,11 @@ td {
 .my-links a:hover {
     text-decoration: underline;
 }
+
+.new-paragraph  {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  

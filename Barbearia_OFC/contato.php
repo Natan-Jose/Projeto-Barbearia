@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
-    <link rel="stylesheet" href="contato.css">
+    <link rel="stylesheet" href="contato00.css">
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
@@ -71,7 +71,7 @@
         </a>
         <hr>
 
-        <p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
+        <p class="new-paragraph">&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 
 </body>
 

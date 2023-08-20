@@ -4,22 +4,21 @@ include("conexao.php");
 if (isset($_POST['Enviar'])) {
   $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
   $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-  $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
-  $comments = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_STRING);
+  $avaliacao = filter_input(INPUT_POST, 'avaliacao', FILTER_SANITIZE_STRING);
+  $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
 
-    $query = "INSERT INTO feedback (nome, email, rating, comments) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO feedback (nome, email, avaliacao, mensagem) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(1, $nome);
     $stmt->bindParam(2, $email);
-    $stmt->bindParam(3, $rating);
-    $stmt->bindParam(4, $comments);
+    $stmt->bindParam(3, $avaliacao);
+    $stmt->bindParam(4, $mensagem);
     $stmt->execute();
 
     echo "<script>alert(\"Feedback enviado com sucesso!\")</script>";
   }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -56,7 +55,7 @@ if (isset($_POST['Enviar'])) {
     <form method="POST" action="feedback.php">
         
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="text" name="nome" placeholder="Seu nome" maxlength="50" required>
                 <br>
                 <br>
 
@@ -66,8 +65,8 @@ if (isset($_POST['Enviar'])) {
                 <br>
                 <br>
 
-                <label for="rating">Avaliação:</label>
-                <select  name="rating" required>
+                <label for="avaliacao">Avaliação:</label>
+                <select  name="avaliacao" required>
                 <option value="">----</option>
                     <option value="5">5 estrelas</option>
                     <option value="4">4 estrelas</option>
@@ -79,17 +78,15 @@ if (isset($_POST['Enviar'])) {
                 
 
                 <br>
-                <label for="comments">Comentários:</label>
+                <label for="mensagem">Comentários:</label>
                 <br>
-                <textarea  name="comments" rows="4" placeholder="Digite aqui..." required></textarea>
+                <textarea name="mensagem" rows="4" placeholder="Digite aqui..." maxlength="300" required></textarea>
                 <br>
                 <br>
                 <input type="submit" value="Enviar" name="Enviar">
             </form>
-        
-    
 
-    <p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
+    <p class="new-paragraph"> &copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 
 </body>
 </html>

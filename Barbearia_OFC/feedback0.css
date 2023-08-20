@@ -43,8 +43,8 @@ form {
     color: white;
     margin: center;
 }
-/* Estilos para o rodapé */
-.content p {
+
+.new-paragraph  {
     text-align: center;
     color: #888;
     font-size: 14px;

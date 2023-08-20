@@ -117,7 +117,7 @@ if (isset($_POST["contato"])) {
 <br>
 <br><br><br><br><br><br><br><br><br>
 
-<p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
+<p class="new-paragraph">&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 
 </body>
 
