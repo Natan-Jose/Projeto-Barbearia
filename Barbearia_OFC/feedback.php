@@ -76,7 +76,7 @@ $feedback_data = $stmt->fetchAll();
                     <option value="4">4 estrelas</option>
                     <option value="3">3 estrelas</option>
                     <option value="2">2 estrelas</option>
-                    <option value="1">1 estrela</option>
+                    <option value="1">1 estrelas</option>
                 </select>
                 <br>
                 
