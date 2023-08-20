@@ -3,16 +3,14 @@ include("conexao.php");
 
 if (isset($_POST['Enviar'])) {
   $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-  $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
   $avaliacao = filter_input(INPUT_POST, 'avaliacao', FILTER_SANITIZE_STRING);
   $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
 
-    $query = "INSERT INTO feedback (nome, email, avaliacao, mensagem) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO feedback (nome, avaliacao, mensagem) VALUES ( ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(1, $nome);
-    $stmt->bindParam(2, $email);
-    $stmt->bindParam(3, $avaliacao);
-    $stmt->bindParam(4, $mensagem);
+    $stmt->bindParam(2, $avaliacao);
+    $stmt->bindParam(3, $mensagem);
     $stmt->execute();
 
     echo "<script>alert(\"Feedback enviado com sucesso!\")</script>";
@@ -61,14 +59,7 @@ $feedback_data = $stmt->fetchAll();
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required>
                 <br>
-                <br>
-
-
-                <label for="email">Email:</label>
-                <input type="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"placeholder="exemplo@dominio.com" required>
-                <br>
-                <br>
-
+<br>
                 <label for="avaliacao">Avaliação:</label>
                 <select  name="avaliacao" required>
                 <option value="">----</option>
@@ -96,7 +87,6 @@ $feedback_data = $stmt->fetchAll();
             <?php foreach ($feedback_data as $feedback): ?>
         <div class="feedback">
             <p><strong>Nome:</strong> <?php echo $feedback['nome']; ?></p>
-            <p><strong>Email:</strong> <?php echo $feedback['email']; ?></p>
             <p><strong>Avaliação:</strong> <?php echo $feedback['avaliacao']; ?></p>
             <p><strong>Comentário:</strong> <?php echo $feedback['mensagem']; ?></p>
         </div>

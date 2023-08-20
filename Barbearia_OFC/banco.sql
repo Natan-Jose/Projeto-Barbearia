@@ -13,7 +13,6 @@ select * from;
 CREATE TABLE feedback (
     id int auto_increment primary key,
     nome varchar(50),
-    email varchar(255),
     avaliacao int,
     mensagem varchar(300)
 );
