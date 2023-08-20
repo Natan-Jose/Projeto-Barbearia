@@ -17,7 +17,7 @@ if (isset($_POST["contato"])) {
   if ($stmt->rowCount() > 0) {
     $conteudo = "<br><br>Agendamentos:<br><br>";
 
-    while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($linha = $stmt->fetch()) {
       $conteudo .= "<p>Nome: " . $linha["nome"] . "</p>";
       $conteudo .= "<p>Dia: " . $linha["dia"] . "</p>";
       $conteudo .= "<p>Hora: " . $linha["hora"] . "</p>";
