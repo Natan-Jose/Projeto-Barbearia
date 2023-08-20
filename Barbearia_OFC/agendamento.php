@@ -91,17 +91,17 @@ if (isset($_POST['Enviar'])) {
     <form method="POST" action="agendamento.php">
 
       <p> Nome: </p>
-      <input type="text" value="" name="nome" id="nome" placeholder="nome e sobrenome" pattern="[A-Za-zÀ-ú\s]+"
+      <input type="text" name="nome" id="nome" placeholder="nome e sobrenome" pattern="[A-Za-zÀ-ú\s]+"
         maxlength="50" required>
       <br>
 
       <p> Contato: </p>
-      <input type="text" value="" name="contato" id="contato" placeholder="(00) 0000-0000" maxlength="15" required>
+      <input type="text" name="contato" id="contato" placeholder="(00) 0000-0000" maxlength="15" required>
       <br>
 
       <label for="dia">Agendar</label>
       <br>
-      <input type="date" value="" name="dia" min="<?php echo date('Y-m-d'); ?>" required>
+      <input type="date" name="dia" min="<?php echo date('Y-m-d'); ?>" required>
 
       <br>
       <p></p>
@@ -144,7 +144,7 @@ if (isset($_POST['Enviar'])) {
 
           <a href="consultar.php" target="_blank">Consultar</a>
           <a href="desmarcar.php" target="_blank">Desmarcar</a>
-
+          <a href="feedback.php" target="_blank">Feedback</a>
         </div>
 
         <hr>
@@ -251,6 +251,8 @@ if (isset($_POST['Enviar'])) {
 
 
     </script>
+
+<p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados. </p>
 
 </body>
 

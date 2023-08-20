@@ -75,7 +75,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
 
-        <img src="imagens/Corte Militarr.jpg" class="image1" alt="Corte Militar">
+        <img src="imagens/Corte  Militar.jpg" class="image1" alt="Corte Militar">
         <div class="carousel-caption d-block">
           <h4>Corte Militar </h4>
 
@@ -167,6 +167,7 @@
       document.addEventListener('DOMContentLoaded', autoAdvanceCarousel);
     </script>
 
+<p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 </body>
 
 </html>

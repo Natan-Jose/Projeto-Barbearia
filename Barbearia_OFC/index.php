@@ -78,7 +78,8 @@ include("excluir_agendamentos.php");
 
                 <br>
 
-
+                <p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
+                
 </body>
 
 </html>

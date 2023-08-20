@@ -96,6 +96,10 @@ if (isset($_POST["contato"])) {
 
   </script>
 
+<br><br><br><br><br><br><br><br><br><br>
+
+<p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
+
 </body>
 
 </html>

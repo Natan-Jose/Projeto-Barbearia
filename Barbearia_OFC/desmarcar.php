@@ -76,9 +76,9 @@ if (isset($_POST["contato"])) {
     <label for="contato">Digite seu telefone:</label>
 
     <input type="text" name="contato" id="contato" placeholder="" >
-
+    
     <button type="submit">Desmarcar</button>
-
+    
     <?= $conteudo ?>
 
   </form>
@@ -113,6 +113,11 @@ if (isset($_POST["contato"])) {
 
 
   </script>
+
+<br>
+<br><br><br><br><br><br><br><br><br>
+
+<p>&copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 
 </body>
 
