@@ -8,11 +8,7 @@ dia date,
 hora varchar(5)
 );
 
-select * from cadastro;
-
-truncate table cadastro;
-
-
+select * from;
 
 CREATE TABLE feedback (
     id int auto_increment primary key,
@@ -22,6 +18,6 @@ CREATE TABLE feedback (
     mensagem varchar(300)
 );
 
-select * from feedback;
+select * from;
 
-truncate table feedback;
+truncate table;

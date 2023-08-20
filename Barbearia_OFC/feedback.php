@@ -18,6 +18,11 @@ if (isset($_POST['Enviar'])) {
     echo "<script>alert(\"Feedback enviado com sucesso!\")</script>";
   }
 
+  // Recupera os dados de feedback do banco de dados
+$query = "SELECT * FROM feedback";
+$stmt = $conn->prepare($query);
+$stmt->execute(); // Executa a consulta
+$feedback_data = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,14 +53,13 @@ if (isset($_POST['Enviar'])) {
             <img src="imagens/Logo.jpeg" width="750" height="390" alt="Logo">
         </picture>
 
-        
             <h1>Feedback da Barbearia</h1>
         
             
     <form method="POST" action="feedback.php">
         
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" placeholder="Seu nome" maxlength="50" required>
+                <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required>
                 <br>
                 <br>
 
@@ -85,6 +89,44 @@ if (isset($_POST['Enviar'])) {
                 <br>
                 <input type="submit" value="Enviar" name="Enviar">
             </form>
+
+
+            <h2>Avaliações</h2>
+    
+            <?php foreach ($feedback_data as $feedback): ?>
+        <div class="feedback">
+            <p><strong>Nome:</strong> <?php echo $feedback['nome']; ?></p>
+            <p><strong>Email:</strong> <?php echo $feedback['email']; ?></p>
+            <p><strong>Avaliação:</strong> <?php echo $feedback['avaliacao']; ?></p>
+            <p><strong>Comentário:</strong> <?php echo $feedback['mensagem']; ?></p>
+        </div>
+    <?php endforeach; ?>
+
+
+<script>
+// Referencia o campo de nome
+var nomeInput = document.getElementsByName('nome')[0];
+
+// Adiciona um listener para o evento 'input' (quando o usuário digita algo)
+nomeInput.addEventListener('input', function () {
+  // Obtém o valor atual do campo de nome
+  var nomeValue = nomeInput.value;
+
+  // Remove os espaços em branco no início e no fim do valor
+  var nomeTrimmed = nomeValue.trim();
+
+  // Verifica se o nome possui pelo menos um espaço em branco, indicando que é um nome completo
+  var nomeValido = nomeTrimmed.includes(' ');
+
+  // Define a validade do campo
+  nomeInput.setCustomValidity(nomeValido ? '' : 'Digite seu nome completo (nome e sobrenome).');
+  // nomeInput.setCustomValidity(nomeValido ? '' : 'Digite seu nome completo');
+
+  // Atualiza a aparência do campo de acordo com a validade
+  nomeInput.reportValidity();
+});
+</script>
+
 
     <p class="new-paragraph"> &copy; 2023 BARBERSHOP COR E ARTE. Todos os direitos reservados.</p>
 
