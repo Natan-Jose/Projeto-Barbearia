@@ -75,9 +75,9 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
 
-        <img src="imagens/Corte Militar.jpg" class="image1" alt="Corte Militar">
+        <img src="imagens/Corte Militarr.jpg" class="image1" alt="Corte Militar">
         <div class="carousel-caption d-block">
-          <h4>Corte Militar</h4>
+          <h4>Corte Militar </h4>
 
 
         </div>
@@ -85,7 +85,7 @@
 
 
       <div class="carousel-item">
-        <img src="imagens/Corte Surfista.webp" class="image1" alt="Corte Surfista">
+        <img src="imagens/Corte Surfista.jpg" class="image1" alt="Corte Surfista">
         <div class="carousel-caption d-block">
           <h4>Corte Surfista </h4>
         </div>
@@ -94,44 +94,44 @@
 
 
       <div class="carousel-item">
-        <img src="imagens/Corte Coque.jfif" class="image1" alt="Corte Coque">
+        <img src="imagens/Corte Quiff.jpg" class="image1" alt="Corte Quiff">
         <div class="carousel-caption d-block">
-          <h4>Corte Coque </h4>
+          <h4>Corte Quiff</h4>
 
         </div>
       </div>
 
       <div class="carousel-item">
-        <img src="imagens/Corte na Régua.jpg" class="image1" alt="corte na régua">
+        <img src="imagens/Corte Slicked Back.png" class="image1" alt="Corte Slicked Back">
         <div class="carousel-caption d-block">
-          <h4>Corte na Régua</h4>
-
-
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <img src="imagens/Corte Wolverine.jpg" class="image1" alt="Corte wolverine">
-        <div class="carousel-caption d-block">
-          <h4>Corte Abacaxi </h4>
+          <h4>Corte Slicked Back</h4>
 
 
         </div>
       </div>
 
       <div class="carousel-item">
-        <img src="imagens/Luzes.jpg" class="image1" alt="Corte Luzes">
+        <img src="imagens/Corte Dreadlock.jpg" class="image1" alt="Corte Drealock">
         <div class="carousel-caption d-block">
-          <h4>Corte Luzes </h4>
+          <h4>Corte Dreadlock </h4>
 
 
         </div>
       </div>
 
       <div class="carousel-item">
-        <img src="imagens/Corte Gilete.jpg" class="image1" alt="Corte Gilete">
+        <img src="imagens/Corte Faux Hawk.jpg" class="image1" alt="Corte Faux Hawk">
         <div class="carousel-caption d-block">
-          <h4>Corte Gilete </h4>
+          <h4>Corte Faux Hawk </h4>
+
+
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="imagens/Corte Mullet.jpg" class="image1" alt="Corte Mullet">
+        <div class="carousel-caption d-block">
+          <h4>Corte Mullet</h4>
 
 
         </div>
