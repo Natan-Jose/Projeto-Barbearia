@@ -1,3 +1,54 @@
+<?php
+include("conexao.php");
+
+$conteudo="";
+
+if (isset($_POST["contato"])) {
+  $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
+
+  // Verifica se o botão Excluir foi pressionado
+  if (isset($_POST["excluir"])) {
+    // Prepara a consulta de exclusão
+    $query = "DELETE FROM cadastro WHERE contato = :contato LIMIT 1";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(":contato", $contato);
+
+    // Execute a consulta
+    if ($stmt->execute()) {
+      $conteudo .= "<script>alert(\"Registro excluído com sucesso.\")</script>";
+    } else {
+      $conteudo .= "<script>alert(\"Erro ao excluir o registro.\")</script>";
+    }
+  }
+
+  // Prepara a consulta de busca
+  $query = "SELECT * FROM cadastro WHERE contato = :contato";
+  $stmt = $conn->prepare($query);
+  $stmt->bindParam(":contato", $contato);
+  $stmt->execute();
+
+  // Exibe as informações
+  if ($stmt->rowCount() > 0) {
+    $conteudo .= "<br><br>Registros encontrados:<br><br>";
+
+    while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      $conteudo .= "<p>Nome: " . $linha["nome"] . "</p>";
+      $conteudo .= "<p>Dia: " . $linha["dia"] . "</p>";
+      $conteudo .= "<p>Hora: " . $linha["hora"] . "</p>";
+      $conteudo .= "<form method='POST' action=''>";
+      $conteudo .= "<input type='hidden' name='contato' value='" . $linha["contato"] . "'>";
+      $conteudo .= "<button type='submit' name='excluir'>Excluir</button>";
+      $conteudo .= "</form>";
+      $conteudo .= "<br>";
+    }
+
+  } else {
+    $conteudo .= "<script>alert(\"Nenhum registro encontrado para o número de contato informado.\")</script>";
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,7 +64,6 @@
 
 <body>
 
-
   <picture>
     <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
     <source media="(max-width: 1050px)" width="700" height="350" srcset="imagens/Logo.jpeg" type="image/
@@ -25,9 +75,11 @@
 
     <label for="contato">Digite seu telefone:</label>
 
-    <input type="text" name="contato" id="contato" placeholder="" required>
+    <input type="text" name="contato" id="contato" placeholder="" >
 
     <button type="submit">Desmarcar</button>
+
+    <?= $conteudo ?>
 
   </form>
 
@@ -65,54 +117,3 @@
 </body>
 
 </html>
-
-
-
-<?php
-include("conexao.php");
-
-if (isset($_POST["contato"])) {
-  $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
-
-  // Verifica se o botão Excluir foi pressionado
-  if (isset($_POST["excluir"])) {
-    // Prepara a consulta de exclusão
-    $query = "DELETE FROM cadastro WHERE contato = :contato LIMIT 1";
-    $stmt = $conn->prepare($query);
-    $stmt->bindParam(":contato", $contato);
-
-    // Execute a consulta
-    if ($stmt->execute()) {
-      echo "<script>alert(\"Registro excluído com sucesso.\")</script>";
-    } else {
-      echo "<script>alert(\"Erro ao excluir o registro.\")</script>";
-    }
-  }
-
-  // Prepara a consulta de busca
-  $query = "SELECT * FROM cadastro WHERE contato = :contato";
-  $stmt = $conn->prepare($query);
-  $stmt->bindParam(":contato", $contato);
-  $stmt->execute();
-
-  // Exibe as informações
-  if ($stmt->rowCount() > 0) {
-    echo "<br>Registros encontrados:<br><br>";
-
-    while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<p>Nome: " . $linha["nome"] . "</p>";
-      echo "<p>Dia: " . $linha["dia"] . "</p>";
-      echo "<p>Hora: " . $linha["hora"] . "</p>";
-      echo "<form method='POST' action=''>";
-      echo "<input type='hidden' name='contato' value='" . $linha["contato"] . "'>";
-      echo "<button type='submit' name='excluir'>Excluir</button>";
-      echo "</form>";
-      echo "<br>";
-    }
-
-  } else {
-    echo "<script>alert(\"Nenhum registro encontrado para o número de contato informado.\")</script>";
-  }
-}
-
-?>

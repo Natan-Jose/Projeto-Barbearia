@@ -1,3 +1,35 @@
+<?php
+include("conexao.php");
+
+$conteudo = "";
+
+if (isset($_POST["contato"])) {
+  $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
+
+
+  // Prepara a consulta
+  $query = "SELECT * FROM cadastro WHERE contato = :contato";
+  $stmt = $conn->prepare($query);
+  $stmt->bindParam(":contato", $contato);
+  $stmt->execute();
+
+  // Exibe as informações
+  if ($stmt->rowCount() > 0) {
+    $conteudo = "<br><br>Agendamentos:<br><br>";
+
+    while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      $conteudo .= "<p>Nome: " . $linha["nome"] . "</p>";
+      $conteudo .= "<p>Dia: " . $linha["dia"] . "</p>";
+      $conteudo .= "<p>Hora: " . $linha["hora"] . "</p>";
+      $conteudo .= "<br>";
+
+    }
+  } else {
+    $conteudo .= "<script>alert(\"Nenhum agendamento encontrado para o telefone informado.\")</script>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,7 +60,10 @@
 
     <button type="submit">Consultar</button>
 
-  </form>
+   
+    <?= $conteudo ?>
+  
+</form>
 
   <script>
     // Referencia o campo de contato
@@ -64,33 +99,3 @@
 </body>
 
 </html>
-
-<?php
-include("conexao.php");
-
-if (isset($_POST["contato"])) {
-  $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
-
-
-  // Prepara a consulta
-  $query = "SELECT * FROM cadastro WHERE contato = :contato";
-  $stmt = $conn->prepare($query);
-  $stmt->bindParam(":contato", $contato);
-  $stmt->execute();
-
-  // Exibe as informações
-  if ($stmt->rowCount() > 0) {
-    echo "<br>Agendamentos:<br><br>";
-
-    while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<p>Nome: " . $linha["nome"] . "</p>";
-      echo "<p>Dia: " . $linha["dia"] . "</p>";
-      echo "<p>Hora: " . $linha["hora"] . "</p>";
-      echo "<br>";
-
-    }
-  } else {
-    echo "<script>alert(\"Nenhum agendamento encontrado para o telefone informado.\")</script>";
-  }
-}
-?>
