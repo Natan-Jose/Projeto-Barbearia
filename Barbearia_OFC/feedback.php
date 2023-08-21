@@ -57,7 +57,7 @@ $feedback_data = $stmt->fetchAll();
     <form method="POST" action="feedback.php">
         
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required>
+                <input type="text" name="nome" id="name" oninput="uppercaseSEN(this)" placeholder="Seu nome" maxlength="50" required>
                 <br>
 <br>
                 <label for="avaliacao">Avaliação:</label>
@@ -75,7 +75,7 @@ $feedback_data = $stmt->fetchAll();
                 <br>
                 <label for="mensagem">Comentários:</label>
                 <br>
-                <textarea name="mensagem" rows="4" placeholder="Digite aqui..." maxlength="300" required></textarea>
+                <textarea name="mensagem" oninput="uppercaseSEN(this)" rows="4" placeholder="Digite aqui..." maxlength="300" required></textarea>
                 <br>
                 <br>
                 <input type="submit" value="Enviar" name="Enviar">
@@ -94,6 +94,11 @@ $feedback_data = $stmt->fetchAll();
 
 
 <script>
+      // Função que converte o valor do campo em letras maiúsculas
+   function uppercaseSEN(element) {
+            element.value = element.value.toUpperCase();
+        }
+
 // Referencia o campo de nome
 var nomeInput = document.getElementsByName('nome')[0];
 

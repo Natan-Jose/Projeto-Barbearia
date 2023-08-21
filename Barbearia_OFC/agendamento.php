@@ -91,8 +91,8 @@ if (isset($_POST['Enviar'])) {
     <form method="POST" action="agendamento.php">
 
       <p> Nome: </p>
-      <input type="text" name="nome" id="nome" placeholder="nome e sobrenome" pattern="[A-Za-zÀ-ú\s]+"
-        maxlength="50" required>
+      <input type="text" name="nome" id="nome" oninput="uppercaseSEN(this)" placeholder="nome e sobrenome"
+        maxlength="50" required >
       <br>
 
       <p> Contato: </p>
@@ -196,6 +196,11 @@ if (isset($_POST['Enviar'])) {
     </form>
 
     <script>
+
+    // Função que converte o valor do campo em letras maiúsculas
+   function uppercaseSEN(element) {
+            element.value = element.value.toUpperCase();
+        }
 
       // Referencia o campo de nome
       var nomeInput = document.getElementsByName('nome')[0];
