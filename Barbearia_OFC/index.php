@@ -29,7 +29,7 @@ include("excluir_agendamentos.php");
         document.write("Data e hora completa: " + hoje);
     </script> -->
 
-    <script src="script_preloader.js"></script>
+    <script src="script_preloader2.js"></script>
 
 </head>
 

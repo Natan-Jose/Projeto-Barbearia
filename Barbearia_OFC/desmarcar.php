@@ -58,11 +58,21 @@ if (isset($_POST["contato"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
   <link rel="stylesheet" href="desmarcar.css">
+  <link rel="stylesheet" href="preloader.css">
   <title>BARBERSHOP</title>
+ 
+  <script src="script_preloader2.js"></script>
 
 </head>
 
-<body>
+<body onLoad="loading()">
+
+<div class="box-load">
+    <div class="pre"></div>
+  </div>
+
+  <div class="content">
+
 
   <picture>
     <source media="(max-width: 750px)" width="320" height="320" srcset="imagens/Logo.jpeg" type="image/png">
