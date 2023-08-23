@@ -57,7 +57,7 @@ $feedback_data = $stmt->fetchAll();
     <form method="POST" action="feedback.php">
         
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="name" oninput="uppercaseSEN(this)" placeholder="Seu nome" maxlength="50" required>
+                <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required>
                 <br>
 <br>
                 <label for="avaliacao">Avaliação:</label>

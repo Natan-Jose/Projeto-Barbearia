@@ -21,7 +21,7 @@ include("excluir_agendamentos.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imagens/android-chrome-192x192.png" type="image/x-icon">
-    <link rel="stylesheet" href="style0.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
     <!-- <script>
@@ -40,6 +40,15 @@ include("excluir_agendamentos.php");
     </div>
 
     <div class="content">
+
+      <!--  <label for="colorPicker">Escolha a cor do texto: :</label>
+        <input type="color" id="colorPicker">
+
+        <label for="bgColorPicker">Escolha a cor de fundo:</label>
+        <input type="color" id="bgColorPicker">
+
+        <script src="colors.js"></script>
+     -->
 
         <br>
         <a class="btn btn-outline-warning" href="index.php" role="button">Página Inicial</a>
