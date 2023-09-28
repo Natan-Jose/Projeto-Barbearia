@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2? family= Anton & display=swap');
+
+@font-face {
+    font-family: 'minha fonte';
+    src: url(Anton-Regular.ttf);
+}
+
+body {
+    text-align: center;
+    background-image: url('imagens/Fundo 04.jpeg');
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* pseudoelemento Camada de desfoque */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('imagens/Fundo 04.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.black-bar {
+    background-color: rgba(0, 0, 0, 0.541);
+    height: 80px;
+}
+
+.Menus {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 25px;
+}
+
+.Menus:hover {
+    color: rgb(230, 199, 98);
+}
+
+.icon-bs {
+    position: absolute;
+    top: -30px;
+    left: 300px;
+}
+
+.icon-bs img {
+    width: 150px;
+    height: auto;
+}
+
+h3 {
+    color: #ffc107;
+    text-shadow: 2px 2px black;
+}
+
+hr {
+    color: gray;
+}
+
+p {
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.social-icon a {
+    text-decoration: none;
+    padding: 2%;
+}
+
+.new-paragraph {
+    text-align: center;
+    text-shadow: 1px 1px black;
+    color: #FFF;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+    padding: 10px;   
+}
