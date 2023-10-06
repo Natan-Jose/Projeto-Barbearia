@@ -105,7 +105,7 @@ if (isset($_POST['Enviar'])) {
 
             <label for="dia">Agende seu Dia</label>
             <br>
-            <input type="date" name="dia" min="?>" required>
+            <input type="date" name="dia" min="<?php echo date('Y-m-d'); ?>"  required>
 
             <br>
             <p></p>
