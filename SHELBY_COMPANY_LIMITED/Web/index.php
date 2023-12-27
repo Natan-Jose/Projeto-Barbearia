@@ -30,7 +30,7 @@ require 'excluir_agendamentos.php';
         document.write("Data e hora completa: " + hoje);
     </script> -->
 
-    <script src="script_preloader.js"></script>
+    <script src="./scripts/script_preloader.js"></script>
 
 </head>
 
@@ -42,13 +42,14 @@ require 'excluir_agendamentos.php';
 
     <div class="content">
 
-        <!--  <label for="colorPicker">Escolha a cor do texto: :</label>
+        <!-- <label for="colorPicker">Escolha a cor do texto: :</label>
         <input type="color" id="colorPicker">
 
         <label for="bgColorPicker">Escolha a cor de fundo:</label>
         <input type="color" id="bgColorPicker">
 
-        <script src="colors.js"></script>
+        <script src="./scripts/colors.js"></script>
+     
      -->
 
         <header class="black-bar">
@@ -78,6 +79,12 @@ require 'excluir_agendamentos.php';
         <hr>
      <video src="./video/barber.mp4" controls autoplay muted loop width="450" height=""></video>
 <hr>
+
+<audio autoplay loop>
+  <source src="caminho/para/sua/musica.mp3" type="audio/mp3">
+  Seu navegador não suporta o elemento de áudio.
+</audio>
+
             <!--     <h1>Nossa Barbearia: Corte e Arte</h1>
 
             <br>

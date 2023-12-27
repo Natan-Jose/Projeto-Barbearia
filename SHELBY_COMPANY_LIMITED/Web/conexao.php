@@ -1,8 +1,8 @@
 <?php
 
 $host = "localhost";
-$user = "natan";
-$db_password = "123123";
+$user = "root";
+$db_password = "";
 $db_name = "agendamento";
 
 try {

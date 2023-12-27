@@ -1,13 +1,12 @@
 <?php
 
 require 'conexao.php';
-
 if (isset($_POST['Enviar'])) {
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
-    $dia = filter_input(INPUT_POST, 'dia', FILTER_SANITIZE_STRING);
-    $hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
-
+    $nome = htmlspecialchars($_POST['nome'], ENT_QUOTES, 'UTF-8');
+    $contato = htmlspecialchars($_POST['contato'], ENT_QUOTES, 'UTF-8');
+    $dia = htmlspecialchars($_POST['dia'], ENT_QUOTES, 'UTF-8');
+    $hora = htmlspecialchars($_POST['hora'], ENT_QUOTES, 'UTF-8');
+    
     $query = "SELECT * FROM cadastro WHERE dia = ? AND hora = ?";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(1, $dia);
@@ -56,7 +55,7 @@ if (isset($_POST['Enviar'])) {
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
-    <script src="script_preloader.js"></script>
+    <script src="./scripts/script_preloader.js"></script>
 
 </head>
 

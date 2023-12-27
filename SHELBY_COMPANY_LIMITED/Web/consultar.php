@@ -44,7 +44,7 @@ if (isset($_POST["contato"])) {
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
-    <script src="script_preloader.js"></script>
+    <script src="./scripts/script_preloader.js"></script>
 
 </head>
 
