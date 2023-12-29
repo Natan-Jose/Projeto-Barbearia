@@ -1,17 +1,20 @@
 <?php
 
 require 'conexao.php';
+require './configuracao_cookies/telefone_cookies.php';
 
 $conteudo = "";
 
 if (isset($_POST["contato"])) {
-    $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
+    $contato =  htmlspecialchars($_POST['contato'],ENT_QUOTES, 'UTF-8');
 
     // Prepara a consulta
     $query = "SELECT * FROM cadastro WHERE contato = :contato";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(":contato", $contato);
     $stmt->execute();
+
+    setTelefoneCookie($contato);
 
     // Exibe as informações
     if ($stmt->rowCount() > 0) {
@@ -30,6 +33,11 @@ if (isset($_POST["contato"])) {
     }
 }
 
+// Verifique se os cookies estão definidos antes de tentar acessá-los
+if (isset($_COOKIE['agendamento_contato'])) {
+    echo "<script>alert('Recuperamos seus dados');</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +52,7 @@ if (isset($_POST["contato"])) {
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
-    <script src="./scripts/script_preloader.js"></script>
+    <script src="script_preloader.js"></script>
 
 </head>
 
@@ -82,8 +90,8 @@ if (isset($_POST["contato"])) {
 
             <label for="contato">Digite seu telefone:</label>
 
-            <input type="text" name="contato" id="contato" placeholder="(99) 99999-9999" required>
-
+            <input type="text" name="contato" id="contato" placeholder="(00) 0000-0000" mrequired value="<?php echo isset($_COOKIE['telefone_contato']) ? $_COOKIE['telefone_contato'] : ''; ?>">
+          
             <button type="submit">Consultar</button>
             <br><br><br><br>
 

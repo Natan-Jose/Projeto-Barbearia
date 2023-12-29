@@ -1,11 +1,13 @@
 <?php
 
 require 'conexao.php';
+require './configuracao_cookies/feedback_cookies.php';
 
 if (isset($_POST['Enviar'])) {
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $avaliacao = filter_input(INPUT_POST, 'avaliacao', FILTER_SANITIZE_STRING);
-    $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
+    $nome = htmlspecialchars($_POST['nome'], ENT_QUOTES, 'UTF-8');
+    $avaliacao = htmlspecialchars($_POST['avaliacao'], ENT_QUOTES, 'UTF-8');
+    $mensagem = htmlspecialchars($_POST['mensagem'], ENT_QUOTES, 'UTF-8');
+
 
     $query = "INSERT INTO feedback (nome, avaliacao, mensagem) VALUES ( ?, ?, ?)";
     $stmt = $conn->prepare($query);
@@ -13,6 +15,8 @@ if (isset($_POST['Enviar'])) {
     $stmt->bindParam(2, $avaliacao);
     $stmt->bindParam(3, $mensagem);
     $stmt->execute();
+
+   setFeedbackCookie($nome, $avaliacao, $mensagem);
 
     echo "<script>alert(\"Feedback enviado com sucesso!\")</script>";
 }
@@ -23,6 +27,10 @@ $stmt = $conn->prepare($query);
 $stmt->execute(); // Executa a consulta
 $feedback_data = $stmt->fetchAll();
 
+// Verifique se os cookies estão definidos antes de tentar acessá-los
+if (isset($_COOKIE['feedback_nome']) && isset($_COOKIE['feedback_avaliacao']) && isset($_COOKIE['feedback_mensagem'])) {
+    echo "<script>alert('Recuperamos seus dados');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +45,7 @@ $feedback_data = $stmt->fetchAll();
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
-    <script src="./scripts/script_preloader.js"></script>
+    <script src="script_preloader.js"></script>
 </head>
 
 <body onLoad="loading()">
@@ -75,26 +83,25 @@ $feedback_data = $stmt->fetchAll();
         <form method="POST" action="feedback.php">
 
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required>
+            <input type="text" name="nome" id="name" placeholder="Seu nome" maxlength="50" required value="<?php echo isset($_COOKIE['feedback_nome']) ? $_COOKIE['feedback_nome'] : ''; ?>">
 
             <br><br>
 
             <label for="avaliacao">Avaliação:</label>
             <select name="avaliacao" required>
                 <option value="">----</option>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="1" <?php echo (isset($_COOKIE['feedback_avaliacao']) && $_COOKIE['feedback_avaliacao'] == '1') ? 'selected' : ''; ?>>⭐</option>
+                <option value="2" <?php echo (isset($_COOKIE['feedback_avaliacao']) && $_COOKIE['feedback_avaliacao'] == '2') ? 'selected' : ''; ?>>⭐⭐</option>
+                <option value="3" <?php echo (isset($_COOKIE['feedback_avaliacao']) && $_COOKIE['feedback_avaliacao'] == '3') ? 'selected' : ''; ?>>⭐⭐⭐</option>
+                <option value="4" <?php echo (isset($_COOKIE['feedback_avaliacao']) && $_COOKIE['feedback_avaliacao'] == '4') ? 'selected' : ''; ?>>⭐⭐⭐⭐</option>
+                <option value="5" <?php echo (isset($_COOKIE['feedback_avaliacao']) && $_COOKIE['feedback_avaliacao'] == '5') ? 'selected' : ''; ?>>⭐⭐⭐⭐⭐</option>
             </select>
 
             <br><br>
 
             <label for="mensagem">Comentários:</label>
             <br>
-            <textarea name="mensagem" rows="4" placeholder="Digite aqui..." maxlength="" required></textarea>
-
+            <textarea name="mensagem" rows="4" placeholder="Digite aqui..." maxlength="" required><?php echo isset($_COOKIE['feedback_mensagem']) ? $_COOKIE['feedback_mensagem'] : ''; ?></textarea>
             <br><br>
 
             <input type="submit" value="Enviar" name="Enviar" class="botao-enviar">
@@ -103,7 +110,7 @@ $feedback_data = $stmt->fetchAll();
 
         <h2>Avaliações</h2>
 
-        <?php foreach ($feedback_data as $feedback): ?>
+        <?php foreach ($feedback_data as $feedback) : ?>
 
             <div class="feedback">
 
@@ -134,12 +141,11 @@ $feedback_data = $stmt->fetchAll();
         <?php endforeach; ?>
 
         <script>
-
             // Referencia do campo de nome
             var nomeInput = document.getElementsByName('nome')[0];
 
             // Adiciona um listener para o evento 'input' (quando o usuário digita algo)
-            nomeInput.addEventListener('input', function () {
+            nomeInput.addEventListener('input', function() {
                 // Obtém o valor atual do campo de nome
                 var nomeValue = nomeInput.value;
 
@@ -156,7 +162,6 @@ $feedback_data = $stmt->fetchAll();
                 // Atualiza a aparência do campo de acordo com a validade
                 nomeInput.reportValidity();
             });
-
         </script>
 
         <div class="new-paragraph"> &copy; 2023 BARBERSHOP CORTE E ARTE. Todos os direitos reservados.</div>

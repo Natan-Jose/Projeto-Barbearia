@@ -1,12 +1,21 @@
 <?php
 
 require 'conexao.php';
+require './configuracao_cookies/agendamento_cookies.php';
+
 if (isset($_POST['Enviar'])) {
     $nome = htmlspecialchars($_POST['nome'], ENT_QUOTES, 'UTF-8');
     $contato = htmlspecialchars($_POST['contato'], ENT_QUOTES, 'UTF-8');
     $dia = htmlspecialchars($_POST['dia'], ENT_QUOTES, 'UTF-8');
     $hora = htmlspecialchars($_POST['hora'], ENT_QUOTES, 'UTF-8');
-    
+
+    setAgendamentoCookie($nome, $contato, $dia, $hora);
+
+    // Verifique se os cookies estão definidos antes de tentar acessá-los
+    if (isset($_COOKIE['agendamento_nome']) && isset($_COOKIE['agendamento_contato']) && isset($_COOKIE['agendamento_dia']) && isset($_COOKIE['agendamento_hora'])) {
+        echo "<script>alert('Recuperamos seus dados');</script>";
+    }
+
     $query = "SELECT * FROM cadastro WHERE dia = ? AND hora = ?";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(1, $dia);
@@ -32,6 +41,11 @@ if (isset($_POST['Enviar'])) {
     }
 }
 
+// Verifique se os cookies estão definidos antes de tentar acessá-los
+if (isset($_COOKIE['agendamento_nome']) && isset($_COOKIE['agendamento_contato']) && isset($_COOKIE['agendamento_dia']) && isset($_COOKIE['agendamento_hora'])) {
+    echo "<script>alert('Recuperamos seus dados');</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +53,10 @@ if (isset($_POST['Enviar'])) {
 
 <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +66,7 @@ if (isset($_POST['Enviar'])) {
     <link rel="stylesheet" href="preloader.css">
     <title>BARBERSHOP</title>
 
-    <script src="./scripts/script_preloader.js"></script>
+    <script src="script_preloader.js"></script>
 
 </head>
 
@@ -94,41 +105,46 @@ if (isset($_POST['Enviar'])) {
         <form method="POST" action="agendamento.php">
 
             <p> Nome: </p>
-            <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" maxlength="50" required>
+            <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" maxlength="50" required value="<?php echo isset($_COOKIE['agendamento_nome']) ? $_COOKIE['agendamento_nome'] : ''; ?>">
             <!--oninput="uppercaseSEN(this)-->
             <br>
 
             <p> Contato: </p>
-            <input type="text" name="contato" id="contato" placeholder="(00) 0000-0000" maxlength="15" required>
+            <input type="text" name="contato" id="contato" placeholder="(00) 0000-0000" maxlength="15" required value="<?php echo isset($_COOKIE['agendamento_contato']) ? $_COOKIE['agendamento_contato'] : ''; ?>">
             <br>
 
             <label for="dia">Agende seu Dia</label>
             <br>
-            <input type="date" name="dia" min="<?php echo date('Y-m-d'); ?>"  required>
+
+            <input type="date" name="dia" min="<?php echo date('Y-m-d'); ?>" required value="<?php echo isset($_COOKIE['agendamento_dia']) ? $_COOKIE['agendamento_dia'] : ''; ?>">
 
             <br>
             <p></p>
 
             <select name="hora" required>
                 <option value="">Horários</option>
-                <option value="09:00">09:00 Manhã</option>
-                <option value="09:30">09:30 Manhã</option>
-                <option value="10:00">10:00 Manhã</option>
-                <option value="10:30">10:30 Manhã</option>
-                <option value="11:00">11:00 Manhã</option>
-                <option value="11:30">11:30 Manhã</option>
-                <option value="12:00">12:00 Tarde</option>
-                <option value="12:30">12:30 Tarde</option>
-                <option value="14:00">14:00 Tarde</option>
-                <option value="14:30">14:30 Tarde</option>
-                <option value="15:00">15:00 Tarde</option>
-                <option value="15:30">15:30 Tarde</option>
-                <option value="16:00">16:00 Tarde</option>
-                <option value="16:30">16:30 Tarde</option>
-                <option value="17:00">17:00 Noite</option>
-                <option value="17:30">17:30 Noite</option>
-                <option value="18:00">18:00 Noite</option>
-                <option value="18:30">18:30 Noite</option>
+                <?php
+                $opcoesHoras = [
+                    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+                    "12:00", "12:30", "14:00", "14:30", "15:00", "15:30",
+                    "16:00", "16:30", "17:00", "17:30", "18:00", "18:30"
+                ];
+
+                foreach ($opcoesHoras as $opcao) {
+                    $selecionada = (isset($_COOKIE['agendamento_hora']) && $_COOKIE['agendamento_hora'] === $opcao) ? 'selected' : '';
+                    $periodo = '';
+
+                    if (strtotime($opcao) >= strtotime('09:00') && strtotime($opcao) <= strtotime('11:30')) {
+                        $periodo = 'Manhã';
+                    } elseif (strtotime($opcao) >= strtotime('12:00') && strtotime($opcao) <= strtotime('16:30')) {
+                        $periodo = 'Tarde';
+                    } elseif (strtotime($opcao) >= strtotime('17:00') && strtotime($opcao) <= strtotime('18:30')) {
+                        $periodo = 'Noite';
+                    }
+
+                    echo "<option value=\"$opcao\" $selecionada>$opcao $periodo</option>";
+                }
+                ?>
 
                 <br>
                 <p></p>
@@ -190,7 +206,6 @@ if (isset($_POST['Enviar'])) {
         </form>
 
         <script>
-
             /* Função que converte o valor do campo em letras maiúsculas
             function uppercaseSEN(element) {
                 element.value = element.value.toUpperCase();
@@ -200,7 +215,7 @@ if (isset($_POST['Enviar'])) {
             var nomeInput = document.getElementsByName('nome')[0];
 
             // Adiciona um listener para o evento 'input' (quando o usuário digita algo)
-            nomeInput.addEventListener('input', function () {
+            nomeInput.addEventListener('input', function() {
                 // Obtém o valor atual do campo de nome
                 var nomeValue = nomeInput.value;
 
@@ -224,7 +239,7 @@ if (isset($_POST['Enviar'])) {
             var contatoInput = document.getElementById('contato');
 
             // Adiciona um listener para o evento 'input' (quando o usuário digita algo)
-            contatoInput.addEventListener('input', function () {
+            contatoInput.addEventListener('input', function() {
                 // Obtém o valor atual do campo de contato
                 var contatoValue = contatoInput.value;
 
@@ -246,7 +261,6 @@ if (isset($_POST['Enviar'])) {
                 // Define o valor formatado no campo de contato
                 contatoInput.value = numeroFormatado;
             });
-
         </script>
 
         <div class="new-paragraph">&copy; 2023 BARBERSHOP CORTE E ARTE. Todos os direitos reservados. </div>

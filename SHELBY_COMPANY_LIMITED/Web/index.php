@@ -30,7 +30,7 @@ require 'excluir_agendamentos.php';
         document.write("Data e hora completa: " + hoje);
     </script> -->
 
-    <script src="./scripts/script_preloader.js"></script>
+    <script src="script_preloader.js"></script>
 
 </head>
 
@@ -81,7 +81,7 @@ require 'excluir_agendamentos.php';
 <hr>
 
 <audio autoplay loop>
-  <source src="caminho/para/sua/musica.mp3" type="audio/mp3">
+  <source src="./sounds/MUSICA DE FUNK PARA BARBEARIA DOS CRIA.mp3" type="audio/mp3">
   Seu navegador não suporta o elemento de áudio.
 </audio>
 

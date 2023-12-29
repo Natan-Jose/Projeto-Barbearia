@@ -1,11 +1,12 @@
 <?php
 
 require 'conexao.php';
+require './configuracao_cookies/telefone_cookies.php';
 
 $conteudo = "";
 
 if (isset($_POST["contato"])) {
-  $contato = filter_input(INPUT_POST, 'contato', FILTER_SANITIZE_STRING);
+  $contato =  htmlspecialchars($_POST['contato'],ENT_QUOTES, 'UTF-8');
 
   // Verifica se o botão Excluir foi pressionado
   if (isset($_POST["excluir"])) {
@@ -29,6 +30,8 @@ if (isset($_POST["contato"])) {
   $stmt->bindParam(":contato", $contato);
   $stmt->execute();
 
+  setTelefoneCookie($contato);
+    
   // Exibe as informações
   if ($stmt->rowCount() > 0) {
     $conteudo .= "<br><br>Registros encontrados:<br><br>";
@@ -50,6 +53,11 @@ if (isset($_POST["contato"])) {
   }
 }
 
+// Verifique se os cookies estão definidos antes de tentar acessá-los
+if (isset($_COOKIE['agendamento_contato'])) {
+  echo "<script>alert('Recuperamos seus dados');</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +72,7 @@ if (isset($_POST["contato"])) {
   <link rel="stylesheet" href="preloader.css">
   <title>BARBERSHOP</title>
 
-  <script src="./scripts/script_preloader.js"></script>
+  <script src="script_preloader.js"></script>
 
 </head>
 
@@ -102,8 +110,8 @@ if (isset($_POST["contato"])) {
 
       <label for="contato">Digite seu telefone:</label>
 
-      <input type="text" name="contato" id="contato" placeholder="(99) 99999-9999">
-
+      <input type="text" name="contato" id="contato" placeholder="(00) 0000-0000" required value="<?php echo isset($_COOKIE['telefone_contato']) ? $_COOKIE['telefone_contato'] : ''; ?>">
+          
       <button type="submit">Desmarcar</button>
 
       <br><br><br><br>

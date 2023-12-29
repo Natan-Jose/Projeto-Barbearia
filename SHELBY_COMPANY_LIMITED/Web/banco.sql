@@ -1,6 +1,6 @@
-create database bd_agendamento;
+create database agendamento;
 
-use bd_agendamento;
+use agendamento;
 
 create table cadastro(
     id int auto_increment,
