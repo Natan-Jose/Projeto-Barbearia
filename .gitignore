@@ -1,8 +1,0 @@
-# Ignorar arquivos de log
-*.log
-
-# Ignorar arquivos temporários
-*~
-
-# Ignorar arquivos do sistema
-.DS_Store
